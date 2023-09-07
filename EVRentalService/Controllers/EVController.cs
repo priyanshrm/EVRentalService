@@ -25,7 +25,7 @@ namespace EVRentalService.Controllers
             return Ok(result);
         }
 
-        [HttpGet("GetAll")]
+        [HttpGet("GetAllEV")]
 
         public IActionResult GetAll() 
         {

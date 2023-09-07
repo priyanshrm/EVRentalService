@@ -8,7 +8,6 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Add services to the container.
 var logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
@@ -22,6 +21,10 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<EVRentalDbContext>(options => options.UseNpgsql(pgsqlconnection));
 builder.Services.AddScoped<IElectricVehicleRepository, ElectricVehicleRepository>();
 builder.Services.AddScoped<ElectricVehicleService, ElectricVehicleService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<UserService, UserService>();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
