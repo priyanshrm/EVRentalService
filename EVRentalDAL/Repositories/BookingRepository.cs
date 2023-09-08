@@ -137,5 +137,16 @@ namespace EVRentalDAL.Repositories
             return response;
 
         }
+
+
+        public bool IsBookingTimeSlotAvailable(BookingModel booking)
+        {
+            bool flag = !_db.booking.Any(b =>
+                    b.vehicleId == booking.vehicleId &&
+                    ((booking.startTime >= b.startTime && booking.startTime <= b.endtime) ||
+                    (booking.endtime >= b.startTime && booking.endtime <= b.endtime)));
+            return flag;
+
+        }
     }
 }

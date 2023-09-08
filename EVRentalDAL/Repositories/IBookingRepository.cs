@@ -15,5 +15,6 @@ namespace EVRentalDAL.Repositories
         Dictionary<string, object> DeleteAllBooking();
         Dictionary<string, object> DeleteBookingById(int id);
         Dictionary<string, object> UpdateBooking(BookingModel booking);
+        bool IsBookingTimeSlotAvailable(BookingModel booking);
     }
 }
