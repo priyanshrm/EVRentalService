@@ -51,5 +51,20 @@ namespace EVRentalBusiness.Service
         {
             return _bookingRepository.GetAllBooking();
         }
+
+        public Dictionary<string, object> GetBookingById(int id)
+        {
+            return _bookingRepository.GetBookingById(id);
+        }
+
+        public Dictionary<string, object> DeleteBookingById(int id)
+        {
+            return _bookingRepository.DeleteBookingById(id);
+        }
+
+        public Dictionary<string, object> DeleteAllBookings()
+        {
+            return _bookingRepository.DeleteAllBooking();
+        }
     }
 }

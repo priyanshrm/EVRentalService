@@ -50,6 +50,54 @@ namespace EVRentalService.Controllers
             }
         }
 
+        [HttpGet("GetBookingById")]
+        public IActionResult GetBookingById(int id)
+        {
+            try
+            {
+                _logger.LogInformation($"Seri log working: fetching booking... {id}");
+                object result = _bookingService.GetBookingById(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation($"Error while fetching booking: {ex.Message}");
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        [HttpDelete("DeleteAllBookings")]
+        public IActionResult DeleteBookings()
+        {
+            try
+            {
+                _logger.LogInformation($"Seri log working: deleting bookings... ");
+                object result = _bookingService.DeleteAllBookings();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation($"Error while deleting bookings: {ex.Message}");
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        [HttpDelete("DeleteBookingById")]
+
+        public IActionResult DeleteBooking(int id)
+        {
+            try
+            {
+                _logger.LogInformation($"Seri log working: deleting booking... {id}");
+                object result = _bookingService.DeleteBookingById(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation($"Error while deleting booking: {ex.Message}");
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
 
     }
 }

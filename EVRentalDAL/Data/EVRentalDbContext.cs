@@ -19,6 +19,24 @@ namespace EVRentalDAL
         public DbSet<EVModel> ev { get; set; }
 
         public DbSet<UserModel> user { get; set; }
-        
+
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BookingModel>()
+                .HasOne(b => b.UserModel)        // Booking has one user
+                .WithMany(a => a.Bookings)       // User has many bookings
+                .HasForeignKey(b => b.userId);   // Foreign key property
+
+
+            modelBuilder.Entity<BookingModel>()
+                .HasOne(b => b.EVModel)
+                .WithMany(a => a.Bookings)
+                .HasForeignKey(b => b.vehicleId);
+
+            base.OnModelCreating(modelBuilder);
+        }
+        */
+
+
     }
 }

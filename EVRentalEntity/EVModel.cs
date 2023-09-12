@@ -5,7 +5,6 @@ namespace EVRentalEntity
     public class EVModel
     {
         [Key]
-
         public int vehicleId { get; set; }
         public string make { get; set; }
 
@@ -18,6 +17,8 @@ namespace EVRentalEntity
         public double chargingTime { get; set; }
 
         public double rentalPrice { get; set; }
+
+       // public ICollection<BookingModel>? Bookings { get; set; }
 
     }
 }

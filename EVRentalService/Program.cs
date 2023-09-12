@@ -2,10 +2,12 @@ using EVRentalBusiness.Service;
 using EVRentalDAL;
 using EVRentalDAL.Repositories;
 using EVRentalEntity.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 var logger = new LoggerConfiguration()
@@ -39,6 +41,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(options =>
+{
+    options.AllowAnyHeader()
+           .AllowAnyMethod()
+           .WithOrigins("http://localhost:3000");
+});
+
 
 app.UseAuthorization();
 

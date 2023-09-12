@@ -30,9 +30,6 @@ namespace EVRentalDAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("bookingId"));
 
-                    b.Property<int>("EVvehicleId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("endtime")
                         .HasColumnType("timestamp with time zone");
 
@@ -53,10 +50,6 @@ namespace EVRentalDAL.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("bookingId");
-
-                    b.HasIndex("EVvehicleId");
-
-                    b.HasIndex("userId");
 
                     b.ToTable("booking");
                 });
@@ -128,25 +121,6 @@ namespace EVRentalDAL.Migrations
                     b.HasKey("userId");
 
                     b.ToTable("user");
-                });
-
-            modelBuilder.Entity("EVRentalEntity.BookingModel", b =>
-                {
-                    b.HasOne("EVRentalEntity.EVModel", "EV")
-                        .WithMany()
-                        .HasForeignKey("EVvehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EVRentalEntity.UserModel", "User")
-                        .WithMany()
-                        .HasForeignKey("userId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EV");
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

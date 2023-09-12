@@ -19,6 +19,6 @@ namespace EVRentalEntity
         public string lastName { get; set; }    
 
         public long phone { get; set; }
-
+        //public ICollection<BookingModel>? Bookings { get; set; }
     }
 }
