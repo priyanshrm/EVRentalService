@@ -3,6 +3,7 @@ using System;
 using EVRentalDAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EVRentalDAL.Migrations
 {
     [DbContext(typeof(EVRentalDbContext))]
-    partial class EVRentalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230911051017_makeForiegnKeys")]
+    partial class makeForiegnKeys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

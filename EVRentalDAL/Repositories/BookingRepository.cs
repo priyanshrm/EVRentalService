@@ -138,6 +138,13 @@ namespace EVRentalDAL.Repositories
 
         }
 
+        public bool CheckVehicleAvailable(BookingModel booking)
+        {
+            bool flag = _db.booking.All(b => 
+                    b.vehicleId != booking.vehicleId);
+            return flag;
+        }
+
 
         public bool IsBookingTimeSlotAvailable(BookingModel booking)
         {

@@ -29,6 +29,10 @@ namespace EVRentalBusiness.Service
             var response = new Dictionary<string, object>();
             try
             {
+                if (_bookingRepository.CheckVehicleAvailable(booking))
+                {
+                    return _bookingRepository.AddBooking(booking);
+                }
                 bool result = _bookingRepository.IsBookingTimeSlotAvailable(booking);
                 if (result)
                     return _bookingRepository.AddBooking(booking);
@@ -41,6 +45,11 @@ namespace EVRentalBusiness.Service
             }
             return response;
 
+        }
+
+        public Dictionary<string, object> GetAllBooking()
+        {
+            return _bookingRepository.GetAllBooking();
         }
     }
 }

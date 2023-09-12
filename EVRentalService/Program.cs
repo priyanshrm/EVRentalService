@@ -23,6 +23,8 @@ builder.Services.AddScoped<IElectricVehicleRepository, ElectricVehicleRepository
 builder.Services.AddScoped<ElectricVehicleService, ElectricVehicleService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<UserService, UserService>();
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<BookingService, BookingService>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
