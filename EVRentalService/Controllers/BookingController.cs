@@ -19,7 +19,7 @@ namespace EVRentalService.Controllers
         }
 
 
-        [HttpGet("heylo")]
+        [HttpGet("Hello")]
         public IActionResult Hello()
         {
             return Ok("Hello");
