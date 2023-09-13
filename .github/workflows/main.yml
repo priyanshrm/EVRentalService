@@ -30,4 +30,4 @@ jobs:
            script: |
               sudo docker rm -f backend-app
               sudo docker pull priyanshrm/myapp:latest
-              sudo docker run -d -p 8080:5000 -p 8081:5001 -e ASPNETCORE_HTTP_PORT=https://+:5001 -e ASPNETCORE_URLS=http://+:5000 --name backend-app priaynshrm/myapp:latest
+              sudo docker run -d -p 8080:5000 -p 8081:5001 -e ASPNETCORE_HTTP_PORT=https://+:5001 -e ASPNETCORE_URLS=http://+:5000 --name backend-app priyanshrm/myapp:latest
