@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EVRentalDAL.Migrations
 {
     [DbContext(typeof(EVRentalDbContext))]
-    [Migration("20230904112640_initial")]
-    partial class initial
+    [Migration("20230913165448_firstMig")]
+    partial class firstMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
