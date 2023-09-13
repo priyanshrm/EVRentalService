@@ -1,0 +1,33 @@
+name: Deploy ASP.NET CORE WEB API on AWS EC2
+on:
+   # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ["feature/priyansh" ]
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t my-node-app:latest . 
+          docker tag my-node-app:latest priyanshrm/myapp:latest 
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }} 
+          docker push priyanshrm/myapp:latest   
+          
+      - name: executing remote ssh commands using password and deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+           host: ${{ secrets.HOST }}
+           username: ${{ secrets.USERNAME }}
+           key: ${{ secrets.KEY }}
+           port: ${{ secrets.PORT }}
+           script: |
+              sudo docker rm -f backend-app
+              sudo docker pull priyanshrm/myapp:latest
+              sudo docker run -d -p 8080:5000 -p 8081:5001 -e ASPNETCORE_HTTP_PORT=https://+:5001 -e ASPNETCORE_URLS=http://+:5000 --name backend-app priaynshrm/myapp:latest
