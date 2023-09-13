@@ -18,6 +18,15 @@ namespace EVRentalService.Controllers
             _logger = logger;
         }
 
+
+        [HttpGet]
+        [Route("/hey")]
+        public string AddBooking()
+        {
+            return "Hello";
+        }
+        
+
         [HttpPost("AddBooking")]
         public IActionResult AddBooking([FromBody] BookingModel booking)
         {
