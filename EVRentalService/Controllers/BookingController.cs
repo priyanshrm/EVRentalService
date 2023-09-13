@@ -19,8 +19,7 @@ namespace EVRentalService.Controllers
         }
 
 
-        [HttpGet]
-        [Route("/hey")]
+        [HttpGet("heylo")]
         public IActionResult Hello()
         {
             return Ok("Hello");
