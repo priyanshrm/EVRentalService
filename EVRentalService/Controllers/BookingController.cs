@@ -21,9 +21,9 @@ namespace EVRentalService.Controllers
 
         [HttpGet]
         [Route("/hey")]
-        public string AddBooking()
+        public IActionResult Hello()
         {
-            return "Hello";
+            return Ok("Hello");
         }
         
 
