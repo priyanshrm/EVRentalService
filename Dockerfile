@@ -6,7 +6,11 @@ RUN dotnet restore "./EVRentalService/EVRentalService.csproj" --disable-parallel
 RUN dotnet restore "./EVRentalBusiness/EVRentalBusiness.csproj" --disable-parallel
 RUN dotnet restore "./EVRentalDAL/EVRentalDAL.csproj" --disable-parallel
 RUN dotnet restore "./EVRentalEntity/EVRentalEntity.csproj" --disable-parallel
-RUN dotnet publish "./EVRentalDAL/EVRentalService.csproj" -c release -o /app --no-restore
+# RUN dotnet publish "./EVRentalService/EVRentalService.csproj" -c release -o /app --no-restore
+RUN dotnet publish "./EVRentalService/EVRentalService.csproj" -c release -o /app --no-restore
+RUN dotnet publish "./EVRentalBusiness/EVRentalBusiness.csproj" -c release -o /app --no-restore
+RUN dotnet publish "./EVRentalDAL/EVRentalDAL.csproj" -c release -o /app --no-restore
+RUN dotnet publish "./EVRentalEntity/EVRentalEntity.csproj" -c release -o /app --no-restore
 
 # Serve Stage
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal
