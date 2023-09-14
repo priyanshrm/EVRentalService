@@ -18,6 +18,12 @@ namespace EVRentalService.Controllers
             _logger = logger;
         }
 
+        [HttpGet("Hello2")]
+        public IActionResult Hello()
+        {
+            return Ok("Hello !! Application is Up.");
+        }
+
 
         [HttpPost("RegisterUser")]
         public IActionResult RegisterUser([FromBody] UserModel user)
