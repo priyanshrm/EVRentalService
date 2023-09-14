@@ -1,5 +1,6 @@
 ﻿using EVRentalBusiness.Service;
 using EVRentalEntity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpPost("AddBooking")]
+        [Authorize(Roles = "user")]
         public IActionResult AddBooking([FromBody] BookingModel booking)
         {
             try
@@ -35,6 +37,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpGet("GetAllBooking")]
+        [Authorize(Roles = "user")]
         public IActionResult GetAllBooking()
         {
             try
@@ -51,6 +54,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpGet("GetBookingById")]
+        [Authorize(Roles = "user")]
         public IActionResult GetBookingById(int id)
         {
             try
@@ -67,6 +71,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpDelete("DeleteAllBookings")]
+        [Authorize(Roles = "user")]
         public IActionResult DeleteBookings()
         {
             try
@@ -83,7 +88,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpDelete("DeleteBookingById")]
-
+        [Authorize(Roles = "user")]
         public IActionResult DeleteBooking(int id)
         {
             try

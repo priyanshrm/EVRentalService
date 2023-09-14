@@ -1,5 +1,6 @@
 ﻿using EVRentalBusiness.Service;
 using EVRentalEntity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpPost("AddUser")]
+        [Authorize(Roles = "user")]
         public IActionResult AddUser([FromBody] UserModel user) 
         {
             try
@@ -35,6 +37,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpGet("GetAllUsers")]
+        [Authorize(Roles = "user")]
         public IActionResult GetUsers()
         {
             try
@@ -51,7 +54,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpGet("GetUserById")]
-
+        [Authorize(Roles = "user")]
         public IActionResult GetUserById(int id)
         {
             try
@@ -68,6 +71,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpDelete("DeleteAllUsers")]
+        [Authorize(Roles = "user")]
         public IActionResult DeleteAllUsers()
         {
             try
@@ -84,6 +88,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpDelete("DeleteUserById")]
+        [Authorize(Roles = "user")]
         public IActionResult DeleteUserById(int id)
         {
             try
@@ -100,7 +105,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpPut("UpdateUser")]
-
+        [Authorize(Roles = "user")]
         public IActionResult UpdateUser(UserModel user)
         {
             try

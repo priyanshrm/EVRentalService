@@ -1,5 +1,6 @@
 ﻿using EVRentalBusiness.Service;
 using EVRentalEntity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpPost("AddEV")]
+        [Authorize(Roles = "user")]
         public IActionResult AddEV(EVModel ev)
         {
             _logger.LogInformation("Seri Log is Working Adding EV");
@@ -26,7 +28,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpGet("GetAllEV")]
-
+        [Authorize(Roles ="user")]
         public IActionResult GetAll() 
         {
             List<EVModel> result = _electricVehicleService.GetAll();
@@ -34,6 +36,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpDelete("DeleteEVById")]
+        [Authorize(Roles = "user")]
         public IActionResult DeleteEVbyId(int id)
         {
             string result = _electricVehicleService.DeleteEVbyId(id);
@@ -42,6 +45,7 @@ namespace EVRentalService.Controllers
 
 
         [HttpGet("GetEVById")]
+        [Authorize(Roles = "user")]
         public IActionResult GetEVbyId(int id)
         {
             EVModel result = null;
@@ -53,6 +57,7 @@ namespace EVRentalService.Controllers
         }
 
         [HttpPut("UpdateEV")]
+        [Authorize(Roles = "user")]
         public IActionResult UpdateEV(EVModel ev)
         {
             string result = _electricVehicleService.UpdateEV(ev);

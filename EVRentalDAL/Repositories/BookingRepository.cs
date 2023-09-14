@@ -26,11 +26,13 @@ namespace EVRentalDAL.Repositories
                 _db.booking.Add(booking);
                 _db.SaveChanges();
                 response["message"] = "inserted";
+
             }
             catch (Exception ex)
             {
                 response["message"] = ex.Message;
             }
+            Console.WriteLine(response);
             return response;
 
         }

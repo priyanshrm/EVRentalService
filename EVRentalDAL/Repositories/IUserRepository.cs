@@ -16,6 +16,9 @@ namespace EVRentalDAL.Repositories
         Dictionary<string, object> DeletUserById(int id);
         Dictionary<string, object> UpdateUser(UserModel user);  
 
+        // authentication methods
+
+        Dictionary<string, object> LoginUser(UserDTO user);
 
 
 
