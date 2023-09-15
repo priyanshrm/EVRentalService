@@ -41,7 +41,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAnyOriginPolicy",
         builder => {
-            builder.AllowAnyOrigin()
+            builder.AllowAnyOrigin("https://6504058dcae8d865034aef45--dulcet-lily-8148f9.netlify.app/")
             .AllowAnyHeader().AllowAnyMethod();
         });
 });
